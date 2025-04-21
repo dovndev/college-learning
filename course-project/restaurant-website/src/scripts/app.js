@@ -36,3 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
     loadPage('home');
     setupNavigation();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const reveals = document.querySelectorAll(".reveal");
+  
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      reveals.forEach(el => {
+        const boxTop = el.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          el.classList.add("visible");
+        }
+      });
+    };
+  
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll(); // run on page load
+  });
+  
