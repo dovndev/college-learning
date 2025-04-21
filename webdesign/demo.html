@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A modern web page using all HTML tags">
+    <meta name="author" content="Your Name">
+    <title>Modern Web Page</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <header>
+        <h1>Welcome to Web Page</h1>
+        <nav>
+            <ul>
+                <li><a href="#section1">Section 1</a></li>
+                <li><a href="#section2">Section 2</a></li>
+                <li><a href="#section3">Section 3</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="section1">
+            <h2>Section 1: Introduction</h2>
+            <p>This is a paragraph with <strong>bold</strong> and <em>italic</em> text.</p>
+            <p><a href="https://google.com" target="_blank">link</a> to an external site.</p>
+            <figure>
+                <img height="100" width="100" src="https://imgs.search.brave.com/UPZgGcPqu58U8_DREvbHhAMcuIQdNjcpznRZ9KHJPCA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9waXhs/ci5jb20vaW1hZ2Vz/L2luZGV4L2FpLWlt/YWdlLWdlbmVyYXRv/ci1vbmUud2VicA" alt="Sample Image">
+                <figcaption>Figure 1: A sample image</figcaption>
+            </figure>
+        </section>
+
+        <section id="section2">
+            <h2>Section 2: Lists and Tables</h2>
+            <h3>Unordered List</h3>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <h3>Ordered List</h3>
+            <ol>
+                <li>First</li>
+                <li>Second</li>
+                <li>Third</li>
+            </ol>
+            <h3>Table</h3>
+            <table border="2" draggable="true">
+                <thead>
+                    <tr>
+                        <th>Header 1</th>
+                        <th>Header 2</th>
+                        <th>Header 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Data 1</td>
+                        <td>Data 2</td>
+                        <td>Data 3</td>
+                    </tr>
+                    <tr>
+                        <td>Data 4</td>
+                        <td>Data 5</td>
+                        <td>Data 6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section id="section3">
+            <h2>Section 3: Multimedia and Forms</h2>
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="/home/dovndev/Music/Music/marco theme.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <h3>Video</h3>
+            <video controls width="400">
+                <source src="https://videocdn.cdnpk.net/joy/content/video/free/2014-12/large_preview/Raindrops_Videvo.mp4?token=exp=1743488094~acl=/*~hmac=b010e0bdefe1667f109626434560e9722bf3250c6784c65f8f7d7f759d6001f7" type="video/mp4">
+                Your browser does not support the video element.
+            </video>
+            <video autoplay muted loop id="myVideo">
+                <source src="https://videocdn.cdnpk.net/joy/content/video/free/2014-12/large_preview/Raindrops_Videvo.mp4?token=exp=1743488094~acl=/*~hmac=b010e0bdefe1667f109626434560e9722bf3250c6784c65f8f7d7f759d6001f7" type="video/mp4">
+              </video>
+            <h3>Form</h3>
+            <form action="/submit" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+                <br>
+                <label for="file">Upload File:</label>
+                <input type="file" id="file" name="file">
+                <br>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Your Name. All rights reserved.</p>
+        <address>
+            Contact me at <a href="mailto:yourname@example.com">yourname@example.com</a>.
+        </address>
+    </footer>
+</body>
+</html>

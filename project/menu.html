@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Our Menu - Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff8f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #d35400;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width:100vw;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .menu-section {
+            padding: 30px;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .category {
+            margin-top: 40px;
+        }
+
+        .category h2 {
+            border-bottom: 2px solid #d35400;
+            padding-bottom: 10px;
+            color: #d35400;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-name {
+            font-weight: bold;
+            color: white;
+        }
+
+        .item-price {
+            color: #e2e6eb;
+        }
+
+        footer {
+            background-color: #d35400;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 50px;
+            width:100vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div class="logo">Amitresto</div>
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="booking.html">Booking</a>
+            <a href="about.html">About</a>
+            <a href="location.html">Location</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="search">
+            <i class="fa-solid fa-search"></i>
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+
+<header>
+    <h1>Our Delicious Menu</h1>
+    <p>Fresh • Homemade • Tasty</p>
+</header>
+
+<div class="menu-section">
+    <!-- Appetizers -->
+    <div class="category">
+        <h2>Appetizers</h2>
+        <div class="menu-item">
+            <span class="item-name">Garlic Bread</span>
+            <span class="item-price">$4.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Bruschetta</span>
+            <span class="item-price">$5.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Mozzarella Sticks</span>
+            <span class="item-price">$6.50</span>
+        </div>
+    </div>
+
+    <!-- Main Courses -->
+    <div class="category">
+        <h2>Main Courses</h2>
+        <div class="menu-item">
+            <span class="item-name">Grilled Chicken Alfredo</span>
+            <span class="item-price">$12.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Margherita Pizza</span>
+            <span class="item-price">$10.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Beef Burger with Fries</span>
+            <span class="item-price">$11.50</span>
+        </div>
+    </div>
+
+    <!-- Desserts -->
+    <div class="category">
+        <h2>Desserts</h2>
+        <div class="menu-item">
+            <span class="item-name">Chocolate Lava Cake</span>
+            <span class="item-price">$6.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Vanilla Ice Cream</span>
+            <span class="item-price">$3.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Tiramisu</span>
+            <span class="item-price">$5.50</span>
+        </div>
+    </div>
+
+    <!-- Drinks -->
+    <div class="category">
+        <h2>Drinks</h2>
+        <div class="menu-item">
+            <span class="item-name">Fresh Lemonade</span>
+            <span class="item-price">$2.99</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Iced Tea</span>
+            <span class="item-price">$2.50</span>
+        </div>
+        <div class="menu-item">
+            <span class="item-name">Coffee</span>
+            <span class="item-price">$2.00</span>
+        </div>
+    </div>
+</div>
+
+<footer>
+    &copy; 2025 Our Restaurant • All Rights Reserved
+</footer>
+
+</body>
+</html>
