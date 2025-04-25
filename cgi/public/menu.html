@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Our Menu</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <form action="/cgi-bin/menu.cgi" method="get">
+            <label for="pizza">Pizza ($10):</label>
+            <input type="number" id="pizza" name="pizza" value="0" min="0">
+            <label for="burger">Burger ($8):</label>
+            <input type="number" id="burger" name="burger" value="0" min="0">
+            <label for="drink">Drink ($3):</label>
+            <input type="number" id="drink" name="drink" value="0" min="0">
+            <button type="submit">Calculate Total</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 Restaurant. All rights reserved.</p>
+    </footer>
+</body>
+</html>

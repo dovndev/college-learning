@@ -5,30 +5,27 @@
   <title>Book a Table</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body{
-    width: 99%;
-    height: 97%;
-    background-image: url('Background2.png');
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-size:cover;
+    body {
+      width: 99%;
+      height: 97%;
+      background-image: url('Background2.png');
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-size: cover;
     }
-    
 
     h2 {
       color: #e8edf3;
       text-align: center;
       font-size: 70px;
-      margin-top: 40px;;
-      
+      margin-top: 40px;
     }
 
     form {
       background: #ffffff;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      
-      margin:15vh;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      margin: 15vh;
       margin-right: 40vw;
     }
 
@@ -62,57 +59,66 @@
   </style>
 </head>
 <body>
-    <div class="top">
-        <div class="logo">Amitresto</div>
-        <div class="nav">
-            <a href="index.html">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="booking.html">Booking</a>
-            <a href="about.html">About</a>
-            <a href="location.html">Location</a>
-            <a href="contact.html">Contact</a>
-        </div>
-        <div class="search">
-            <i class="fa-solid fa-search"></i>
-            <i class="fa-solid fa-bars"></i>
-        </div>
+  <div class="top">
+    <div class="logo">Artuate</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="booking.html">Booking</a>
+      <a href="about.html">About</a>
+      <a href="location.html">Location</a>
+      <a href="contact.html">Contact</a>
+
     </div>
+    <div class="search">
+      <i class="fa-solid fa-search"></i>
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </div>
 
-<h2>Book a Table</h2>
+  <h2>Book a Table</h2>
 
-<form id="bookingForm">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="date" name="date" required />
-  <input type="number" name="seats" placeholder="Number of Seats" min="1" max="20" required />
-  <button type="submit">Book Now</button>
-</form>
+  <form id="bookingForm">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="date" name="date" required />
+    <input type="number" name="seats" placeholder="Number of Seats" min="1" max="20" required />
+    <button type="submit">Book Now</button>
+  </form>
 
-<div id="receipt"></div>
+  <div id="receipt"></div>
 
-<script>
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const form = new FormData(this);
-  const params = new URLSearchParams(form).toString();
+  <script>
+    document.getElementById("bookingForm").addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  fetch("/booking.cgi", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: params
-  })
-  .then(res => res.text())
-  .then(data => {
-    document.getElementById("receipt").innerHTML = data;
-    document.getElementById("receipt").style.display = "block";
-    alert("🎉 Booking successful!");
-    this.reset();
-  })
-  .catch(() => {
-    document.getElementById("receipt").innerText = "Error occurred. Please try again.";
-    document.getElementById("receipt").style.display = "block";
-  });
-});
-</script>
+      // Get form data
+      const name = this.name.value;
+      const date = this.date.value;
+      const seats = this.seats.value;
 
+      // Create a booking object
+      const booking = { name, date, seats };
+
+      // Save booking to localStorage
+      let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      bookings.push(booking);
+      localStorage.setItem("bookings", JSON.stringify(bookings));
+
+      // Display receipt
+      const receipt = `
+        <h3>Booking Receipt</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Date:</strong> ${date}</p>
+        <p><strong>Seats:</strong> ${seats}</p>
+      `;
+      document.getElementById("receipt").innerHTML = receipt;
+      document.getElementById("receipt").style.display = "block";
+
+      // Reset the form
+      this.reset();
+
+      alert("🎉 Booking successful!");
+    });
+  </script>
 </body>
 </html>

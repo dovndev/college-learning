@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - View Bookings</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      color: #fff;
+      animation: fadeIn 1.5s ease-in-out;
+      min-height: 100vh;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #fff;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      animation: slideUp 1.5s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+      color: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    table th, table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    table th {
+      background-color: #6a11cb;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    table tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Panel - View Bookings</h1>
+  </header>
+  <main>
+    <h2>All Bookings</h2>
+    <table id="bookingsTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Date</th>
+          <th>Seats</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Bookings will be dynamically inserted here -->
+      </tbody>
+    </table>
+    <button id="clearBookings">Clear All Bookings</button>
+  </main>
+
+  <script>
+    // Function to load bookings from localStorage
+    function loadBookings() {
+      const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+      const tableBody = document.querySelector("#bookingsTable tbody");
+      tableBody.innerHTML = ""; // Clear existing rows
+
+      if (bookings.length === 0) {
+        tableBody.innerHTML = "<tr><td colspan='3'>No bookings found.</td></tr>";
+        return;
+      }
+
+      bookings.forEach((booking) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${booking.name}</td>
+          <td>${booking.date}</td>
+          <td>${booking.seats}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    // Function to clear all bookings
+    document.getElementById("clearBookings").addEventListener("click", () => {
+      if (confirm("Are you sure you want to clear all bookings?")) {
+        localStorage.removeItem("bookings");
+        loadBookings();
+        alert("All bookings have been cleared!");
+      }
+    });
+
+    // Load bookings on page load
+    loadBookings();
+  </script>
+</body>
+</html>
